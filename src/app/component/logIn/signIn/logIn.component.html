@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+  <div class="col-12" style="margin-top:20px">
+    <mat-card style="margin:50px 0">
+      <h1 *ngIf="!checkStatus"> {{status}}</h1>
+      <h1 *ngIf="checkStatus"> {{status1}}</h1>
+      <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="formSubmit">
+
+        <mat-form-field  style="width: 350px;" appearance="outline">
+          <input formControlName="username" matInput placeholder="User Name*">
+          <mat-icon  color="accent" matSuffix >face</mat-icon>
+          <mat-error>this field is mandatory.</mat-error>
+      </mat-form-field><br>
+
+      <mat-form-field style="width: 350px;" appearance="outline">
+        <input name="password" formControlName="password" matInput placeholder="Password*"
+        [type]="hide? 'password':'text'">
+        <button (click)="hide=!hide" [attr.aria-label]="'hide password'" matSuffix><mat-icon color="accent" >
+          {{hide?'visibility_off':'visibility'}}</mat-icon>
+        </button>
+        <mat-error>this field is mandatory.</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="formSubmit.invalid">Submit</button>
+      </form>
+    </mat-card>
+  </div>
+</div>
+</div>

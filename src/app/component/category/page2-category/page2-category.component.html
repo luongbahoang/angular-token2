@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <!--            <mat-error *ngIf="checkDelete" class="alert alert-primary">{{status}}</mat-error>-->
+      <mat-card style="margin: 50px 0">
+        <mat-card-title align="center" class="alert alert-primary">PAGE CATEGORY</mat-card-title>
+
+        <div class="search">
+          <mat-form-field style="width: 350px" appearance="outline">
+            <mat-label>Search Category 2:</mat-label>
+            <input matInput (input)="onSearch()" [(ngModel)]="nameCategory">
+            <mat-icon color="accent" matSuffix>search</mat-icon>
+          </mat-form-field><br>
+        </div>
+        <h1>Page Search</h1>
+        <div class="row" *ngIf="checkSearch">
+          <div class="column" *ngFor="let ctg of searchCategorys">
+            <div class="card">
+              <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
+              <img class="img" [src]="ctg.avatarCategory">
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="!checkSearch">
+          <div class="column" *ngFor="let ctg of categorys">
+            <button [routerLink]="['/update-category/']" mat-icon-button color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <div class="card">
+              <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
+              <img class="img" [src]="ctg.avatarCategory">
+            </div>
+          </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[3,6,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>
+      </mat-card>
+    </div>
+  </div>
+</div>

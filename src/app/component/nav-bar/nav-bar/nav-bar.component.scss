@@ -1,0 +1,28 @@
+li{
+    height:  40px;
+   align-items: center;
+   display: flex;
+
+}
+ul li:hover{
+  background-color: #0e4be7;
+
+}
+ul li:hover a{
+  color: white;
+
+}
+#navbarNav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 16px;
+}
+mat-card{
+  margin: 0;
+}
+
+element.style{
+  margin: 0;
+}
+

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top:20px">
+
+      <mat-card style="margin:50px 0">
+
+        <h1>{{status}}</h1>
+        <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="formSubmit">
+          <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar>
+          <mat-form-field  style="width: 350px;" appearance="outline">
+            <input formControlName="nameCategory" matInput placeholder="Category Name*">
+            <mat-icon  color="accent" matSuffix >face</mat-icon>
+            <mat-error>this field is mandatory.</mat-error>
+          </mat-form-field><br>
+         <br>
+          <button mat-raised-button color="primary" type="submit" [disabled]="formSubmit.invalid">Submit</button>
+        </form>
+
+      </mat-card>
+    </div>
+  </div>
+</div>
+

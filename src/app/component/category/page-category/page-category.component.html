@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top:20px">
+      <mat-form-field appearance="outline" class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey"
+               placeholder="Search"
+               autocomplete="off"
+               (keyup)="applyFilter()">
+
+        <button mat-button
+                matSuffix
+                mat-icon-button
+                aria-label="clear"
+                *ngIf="searchKey"
+                (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-card style="margin:50px 0">
+
+        <div class="row" *ngIf="!searchKey">
+          <div class="column" *ngFor="let ctg of categories">
+            <div class="card">
+              <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
+              <img class="img" [src]="ctg.avatarCategory">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="searchKey">
+          <div class="column" *ngFor="let ctg of searchCategories">
+            <div class="card">
+              <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
+              <img class="img" [src]="ctg.avatarCategory">
+            </div>
+          </div>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[3,6,9,20]"
+                       [length]="totalElements"
+                       aria-label="Select Page"
+                       (page)="nextPage($event)"></mat-paginator>
+      </mat-card>
+    </div>
+  </div>
+</div>

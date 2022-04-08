@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <mat-card style="margin: 50px 0">
+        <mat-error >{{status}}</mat-error>
+        <form
+          (ngSubmit)="onSubmit()"
+          class="example-form"
+          [formGroup]="formSubmit"
+        >
+          <mat-form-field style="width: 350px" appearance="outline">
+            <input formControlName="name" matInput placeholder="Name*" />
+            <mat-icon color="accent" matSuffix>badge</mat-icon>
+            <mat-error >this field is mandatory.</mat-error> </mat-form-field
+          ><br />
+
+          <mat-form-field style="width: 350px" appearance="outline">
+            <input
+              formControlName="username"
+              matInput
+              placeholder="User Name*"
+            />
+            <mat-icon color="accent" matSuffix>face</mat-icon>
+            <mat-error>this field is mandatory.</mat-error> </mat-form-field
+          ><br />
+
+<!--          <mat-form-field style="width: 350px" appearance="outline">-->
+<!--            <input-->
+<!--              formControlName="avatar"-->
+<!--              matInput-->
+<!--              placeholder="Avatar"-->
+<!--            />-->
+<!--            <mat-icon color="accent" matSuffix>avatar</mat-icon>-->
+<!--            <mat-error>this field is mandatory.</mat-error> </mat-form-field-->
+<!--          ><br />-->
+
+          <mat-form-field style="width: 350px" appearance="outline">
+            <input
+              formControlName="password"
+              matInput
+              placeholder="Password*"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              (click)="hide = !hide"
+              [attr.aria-label]="'hide password'"
+              matSuffix
+            >
+              <mat-icon color="accent">
+                {{ hide ? "visibility_off" : "visibility" }}</mat-icon
+              >
+            </button>
+            <mat-error>this field is mandatory.</mat-error> </mat-form-field
+          ><br />
+
+          <mat-form-field style="width: 350px" appearance="outline">
+            <input formControlName="email" matInput placeholder="Email*" />
+            <mat-icon color="accent" matSuffix>email</mat-icon>
+            <mat-error>this field is mandatory.</mat-error> </mat-form-field
+          ><br />
+          <br />
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="formSubmit.invalid"
+          >
+            Submit
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

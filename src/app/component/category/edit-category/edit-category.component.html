@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Edit Category</h1>
+<div mat-dialog-content>
+  <p>Category Name</p>
+  <mat-form-field appearance="outline">
+
+    <input matInput [(ngModel)]="data.nameCategory">
+  </mat-form-field>
+  <p>Category Avatar</p>
+
+    <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial  >Ok</button>
+</div>

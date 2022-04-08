@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top:20px">
+
+      <mat-card style="margin:50px 0">
+<div class="mat-elevation-z8">
+  <h1>{{status}}</h1>
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- id Column -->
+    <ng-container matColumnDef="id" >
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element,let i=index"> {{i+1}} </td>
+    </ng-container>
+
+    <!-- nameCategory Column -->
+    <ng-container matColumnDef="nameCategory" >
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.nameCategory}} </td>
+    </ng-container>
+
+    <!-- avatarCategory Column -->
+    <ng-container matColumnDef="avatarCategory" >
+    <th mat-header-cell *matHeaderCellDef> Avatar </th>
+    <td mat-cell *matCellDef="let element">
+      <img  style="border-radius: 50%" [src]=element.avatarCategory width="40px" height="40px"> </td>
+  </ng-container>
+
+    <!-- button Column -->
+    <ng-container matColumnDef="button" >
+      <th mat-header-cell *matHeaderCellDef> Button </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button (click)="openDialog(element.id)">Edit</button>
+        <button mat-raised-button style="margin-left:10px " (click)="delete(element.id)">Delete</button>
+       </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+      </mat-card>
+    </div>
+  </div>
+</div>
